@@ -13,7 +13,7 @@ export default function Hero() {
             </h1>
             <p data-aos="fade-up" data-aos-delay="200">
               我们用心呵护每一只宠物，提供专业、温和的洗护美容服务。
-              让您的毛孩子在这里享受五星级的宠爱体验。
+              让您的毛孩子在这里能够享受五星级的宠爱体验。
             </p>
             <div className="hero-btns" data-aos="fade-up" data-aos-delay="300">
               <a href="#contact" className="btn-primary">
