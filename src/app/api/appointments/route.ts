@@ -44,6 +44,19 @@ export async function POST(req: NextRequest) {
       returning id, created_at
     `;
     const row = rows[0];
+    // 成功时异步推企业微信,不阻塞 HTTP 响应(通知失败也不影响主流程)
+    notifyWeCom(
+      [
+        "🐾 [新预约提交]",
+        "",
+        `姓名: ${name}`,
+        `电话: ${phone}`,
+        `宠物: ${petType || "-"}`,
+        `留言: ${message || "-"}`,
+        `时间: ${row.created_at.toLocaleString("zh-CN", { timeZone: "Asia/Shanghai" })}`,
+        `预约 ID: ${row.id}`,
+      ].join("\\n")
+    ).catch((e) => console.error("[appointments] success notify failed", e));
     return NextResponse.json({
       ok: true,
       id: row.id,
