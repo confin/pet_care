@@ -1,0 +1,19 @@
+# Netlify 部署配置 — pet_care
+# https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command   = "npm run build"
+  publish   = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Next.js 官方部署插件(OpenNext based,支持 API Route → Netlify Functions)
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# 强缓存静态资源(单页营销站,刷新少)
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
