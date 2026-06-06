@@ -11,12 +11,12 @@ create table if not exists public.appointments (
   created_at  timestamptz not null default now()
 );
 
-comment on table  public.appointments           is ''毛茸茸宠物洗护馆预约记录'';
-comment on column public.appointments.name      is ''用户姓名'';
-comment on column public.appointments.phone     is ''联系电话'';
-comment on column public.appointments.pet_type  is ''宠物类型(自由文本,例如:金毛/布偶猫/泰迪)'';
-comment on column public.appointments.message   is ''预约留言'';
-comment on column public.appointments.created_at is ''提交时间(UTC,业务侧用 now() 即可)'';
+comment on table  public.appointments           is '毛茸茸宠物洗护馆预约记录';
+comment on column public.appointments.name      is '用户姓名';
+comment on column public.appointments.phone     is '联系电话';
+comment on column public.appointments.pet_type  is '宠物类型(自由文本,例如:金毛/布偶猫/泰迪)';
+comment on column public.appointments.message   is '预约留言';
+comment on column public.appointments.created_at is '提交时间(UTC,业务侧用 now() 即可)';
 
 create index if not exists appointments_created_at_idx
   on public.appointments (created_at desc);
