@@ -69,7 +69,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(
       {
         error: "服务器繁忙,请稍后重试或直接拨打电话 188-8888-8888",
-        detail: errText.slice(0, 500),
       },
       { status: 500 },
     );
